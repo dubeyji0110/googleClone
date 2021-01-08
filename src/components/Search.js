@@ -41,7 +41,7 @@ function Search({ hideButtons = false }) {
                         <Button className='search__buttonshidden' variant='outlined'>I'm feeling Lucky</Button>
                     </div>
                 )
-            };
+            }
         </form>
     )
 }

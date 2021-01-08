@@ -30,4 +30,6 @@ function Home() {
     )
 }
 
-export default Home
+export default Home;
+
+// AIzaSyBwJt3TSfMM - U7Zx2y79kjIkB - bT3jOWHA
