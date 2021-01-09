@@ -43,6 +43,7 @@
     border: 1px solid white;
     text-transform: inherit;
     color: #5a5c5f;
+    border-radius: 5px;
 }
 
 .search__buttons button:hover{
@@ -55,4 +56,21 @@
 
 .search__buttonshidden{
     display: none !important;
+}
+
+@media only screen and (max-width: 680px){
+    .search__input{
+        width: 80vw;
+        height: 25px;
+        padding: 8px 10px;
+    }
+
+    .search__input > input{
+        padding: 8px;
+    }
+
+    .search__buttons button{
+        padding: 7px 12px;
+        margin: 2px;
+    }
 }

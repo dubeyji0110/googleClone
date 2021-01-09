@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+    overflow: hidden;
 }
 
 .home__header{
@@ -44,4 +45,28 @@
 .home__body > img{
     object-fit: contain;
     height: 90px;
+}
+
+@media only screen and (max-width: 680px){
+    .home__body > img{
+        height: 60px;
+    }
+
+    .home__header{
+        position: relative;
+    }
+
+    .home__headerLeft, .home__headerRight > a, .home__headerRight > .MuiSvgIcon-root{
+        display: none;
+    }
+
+    .MuiAvatar-root{
+        position: absolute !important;
+        right: 0;
+        top: 20px;
+    }
+
+    .home__body{
+        margin-top: 150px;
+    }
 }

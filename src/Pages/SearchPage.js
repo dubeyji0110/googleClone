@@ -9,16 +9,14 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { useStateValue } from '../StateProvider';
 import useGoogleSearch from '../useGoogleSearch';
 import Search from '../components/Search';
-import tesla from '../response'
+// import tesla from '../response'
 import './SearchPage.css';
 
 function SearchPage() {
 
     const [{ term }, dispatch] = useStateValue();
-    // const { data } = useGoogleSearch(term);
-    const data = tesla;
-
-    console.log(data);
+    const { data } = useGoogleSearch(term);
+    // const data = tesla;
     return (
         <div className='searchPage'>
             <div className='searchPage__header'>
@@ -61,24 +59,27 @@ function SearchPage() {
                             <div className='searchPage__option'>
                                 <Link to='/tools'>Tools</Link>
                             </div>
-                        </div>
+                        </div> 
                     </div>
                 </div>
             </div>
-            {true && (
+            {term && (
                 <div className='searchPage__results'>
                     <p className='searchPage__resultCount'>
                         About {data?.searchInformation.formattedTotalResults} results in {data?.searchInformation.formattedSearchTime} seconds for {term}.
                     </p>
                     {data?.items.map(item => (
                         <div className='searchPage__result'>
-                            <a href={item.link}>
-                                {item.displayLink}∀
+                            <a href={item.link} className='black'>
+                                {item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src && (
+                                    <img className='seacrhPage__resultImage' src={item.pagemap?.cse_image[0]?.src} alt='' />
+                                )}
+                                {item.displayLink} <span className='small'>&#9660;</span>
                             </a>
                             <a href={item.link} className='searchPage__resultTitle'>
                                 <h2>{item.title}</h2>
                             </a>
-                            <p className='SearchPage__resultSnippets'>{item.snippet}</p>
+                            <p className='searchPage__resultSnippet'>{item.snippet}</p>
                         </div>
                     ))}
                 </div>
