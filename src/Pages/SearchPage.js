@@ -9,14 +9,13 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { useStateValue } from '../StateProvider';
 import useGoogleSearch from '../useGoogleSearch';
 import Search from '../components/Search';
-// import tesla from '../response'
 import './SearchPage.css';
 
 function SearchPage() {
 
     const [{ term }, dispatch] = useStateValue();
     const { data } = useGoogleSearch(term);
-    // const data = tesla;
+    
     return (
         <div className='searchPage'>
             <div className='searchPage__header'>
